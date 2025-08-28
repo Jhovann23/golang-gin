@@ -28,14 +28,14 @@ func InitDB() {
 	var err error
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Println("Failed connect to database", err)
+		log.Fatal("Failed connect to database", err)
 	}
 	fmt.Println("Database connected successfully!")
 
 	//migrate DB
 	err = DB.AutoMigrate(&models.User{})
 	if err != nil {
-		log.Println("Fatal to migrate database:", err)
+		log.Fatal("Fatal to migrate database:", err)
 	}
 	fmt.Println("Successfully to migrate database!")
 }
