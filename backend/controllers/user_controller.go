@@ -96,3 +96,7 @@ func FindUserById(c*gin.Context) {
 		},
 	})
 }
+func UpdateUser(c*gin.Context) {
+	id := c.Param("id")
+	
+}
